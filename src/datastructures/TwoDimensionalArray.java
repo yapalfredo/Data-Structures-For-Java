@@ -4,29 +4,33 @@ package datastructures;
  *
  * @author al
  */
-public class SingleDimensionalArray {
-    
-    int arr[] = null;
+public class TwoDimensionalArray 
+{
+    int arr[][] = null;
 
     /**
-     * This is the constructor for this SingleDimensionalArray object.
-     * It should always have an argument passed to the object to work.
-    @param arraySize this will set the capacity of your array.
+     * This is the constructor for TwoDimensionalArray object.
+     * It should always have 2 arguments passed to the object to work.
+    @param rows this will set the number of row for the array.
+    @param cols this will set the number of rows for the array.
     @throws Exception
     */
-    public SingleDimensionalArray(int arraySize) 
+    public TwoDimensionalArray(int rows, int cols) 
     {
+        arr = new int[rows][cols];
         try
         {
-            arr = new int[arraySize];
             for (int i = 0; i < arr.length; i++) 
             {
-                arr[i] = Integer.MIN_VALUE;
+                for (int j = 0; j < arr[i].length; j++) 
+                {
+                    arr[i][j] = Integer.MIN_VALUE;
+                }
             }
         }
         catch (Exception e)
         {
-            e.printStackTrace();
+            e.getStackTrace();
         }
     }
     
@@ -42,10 +46,14 @@ public class SingleDimensionalArray {
         {
             for (int i = 0; i < arr.length; i++) 
             {
-                System.out.print(arr[i] + " ");   
+                for (int j = 0; j < arr[i].length; j++) 
+                {
+                    System.out.print(arr[i][j] + "   ");
+                }
+                System.out.println("");
             }
         }
-        catch(ArrayIndexOutOfBoundsException e)
+        catch (ArrayIndexOutOfBoundsException e)
         {
             e.getStackTrace();
         }
@@ -57,14 +65,15 @@ public class SingleDimensionalArray {
     
     /**
      * This method is used for displaying the value of specific cell in the array.
-    @param index the location in the array that you want the value to be displayed.
+    @param row gets the row in the array
+    @param col gets the column in the array
     @throws ArrayIndexOutOfBoundsException
     */
-    public void PrintArrayCell(int index)
+    public void PrintArrayCell(int row, int col)
     {
         try
         {
-            System.out.println(arr[index]);
+            System.out.println(arr[row][col]);
         }
         catch (ArrayIndexOutOfBoundsException e)
         {
@@ -72,16 +81,17 @@ public class SingleDimensionalArray {
         }
     }
     
-    /**
+        /**
      * This method is used for deleting a specific array cell
-    @param index the location in the array you want to delete.
+    @param row gets the row in the array
+    @param col gets the column in the array
     @throws ArrayIndexOutOfBoundsException
     */
-    public void DeleteArrayCell(int index)
+    public void DeleteArrayCell(int row, int col)
     {
         try
         {
-            arr[index] = Integer.MIN_VALUE;
+            arr[row][col] = Integer.MIN_VALUE;
         }
         catch (ArrayIndexOutOfBoundsException e)
         {
@@ -91,38 +101,38 @@ public class SingleDimensionalArray {
     
     /**
      * This method is used for Inserting in data in the array.
-    @param index the location in the array you want to insert the data at.
-    @param value the data that will be inserted in the array.
+    @param row set the row where the value will be inserted
+    @param col set the column where the value will be inserted
+    @param val set the value of the data to be inserted
     @throws ArrayIndexOutOfBoundsException
     @throws Exception
     */
-    public void Insert(int index, int value)
+    public void InsertArray(int row, int col, int val)
     {
-        try
+        try 
         {
-           if (arr[index] == Integer.MIN_VALUE)
-           {
-               arr[index] = value;
-               System.out.println(value + " was successfully inserted at index " + index);
-           }
-           else
-           {
-               System.out.println("The array location is already occupied. Please enter different index.");
-           }
-        }
-        catch(ArrayIndexOutOfBoundsException e)
+            if (arr[row][col] == Integer.MIN_VALUE)
+            {
+                arr[row][col] = val;
+                System.out.println("Value successfully inserted");
+            }
+            else
+            {
+                System.out.println("The array location is already occupied. Please enter different index.");
+            }
+            
+        } 
+        catch (ArrayIndexOutOfBoundsException e)
         {
             e.getStackTrace();
         }
-        catch(Exception e)
+        catch (Exception e) 
         {
             e.getStackTrace();
         }
     }
     
-    
-    
-    /**
+        /**
      * This method is used for searching a value in the array.
     @param value the data that will be searched in the array.
     @throws ArrayIndexOutOfBoundsException
@@ -134,11 +144,14 @@ public class SingleDimensionalArray {
         {
             for (int i = 0; i < arr.length; i++) 
             {
-                if (arr[i] == value)
+                for (int j = 0; j < arr[i].length; j++) 
                 {
-                    System.out.println("Item exists");
-                    System.out.println(value + " has an index of " + i);
-                    return;
+                    if (arr[i][j] == value)
+                    {
+                        System.out.println("Item exists");
+                        System.out.println(value + " is located at row " + i + " and column " + j);
+                        return;
+                    }
                 }
             }
             System.out.println(value + " not found!");
