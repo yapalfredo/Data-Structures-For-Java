@@ -1,13 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package datastructures;
 
 /**
  *
- * @author al
+ * @author ALFREDO YAP
+ * CS MAJOR - NEW YORK, NY
+ * DATA STRUCTURES PRACTICE FOR JAVA
  */
 public class DataStructures {
 
