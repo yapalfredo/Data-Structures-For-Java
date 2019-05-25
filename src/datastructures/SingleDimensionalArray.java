@@ -152,4 +152,13 @@ public class SingleDimensionalArray {
             e.getStackTrace();
         }
     }
+    
+    /**
+     * This method is used for deleting the array
+    */
+    public void DeleteArray()
+    {
+        arr = null;
+        System.out.println("The array has been deleted");
+    }
 }

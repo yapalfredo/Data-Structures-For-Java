@@ -67,7 +67,8 @@ public class DataStructures {
         tda.Search(20);
         System.out.println("");
         System.out.println("");
-        tda.PrintArrayCell(0,2);
+        tda.PrintArrayCell(1,5);
+
     }
     
 }
